@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>家計簿</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="index.js" defer></script>
+</head>
+
+<body>
+  <main>
+    <h1>家計簿</h1>
+
+    <div class="app-layout">
+      <section class="panel form-panel">
+        <h2>データ登録</h2>
+        <form id="kakeibo-form" class="form-grid">
+          <div class="field">
+            <label for="date">日付</label>
+            <input id="date" name="date" type="date" />
+          </div>
+
+          <div class="field">
+            <label for="item">品目</label>
+            <input id="item" name="item" type="text" placeholder="例：食費、給与" />
+          </div>
+
+          <div class="field">
+            <label for="amount">金額</label>
+            <input id="amount" name="amount" type="number" min="0" step="1" placeholder="0" />
+          </div>
+
+          <fieldset class="radio-group">
+            <legend>収支</legend>
+            <div class="radio-options">
+              <label>
+                <input type="radio" name="type" value="expense" />
+                支出
+              </label>
+              <label>
+                <input type="radio" name="type" value="income" />
+                収入
+              </label>
+            </div>
+          </fieldset>
+
+          <button type="submit">追加</button>
+        </form>
+      </section>
+
+      <section class="panel summary-panel">
+        <h2>一覧</h2>
+        <div class="summary-header">
+          <span>合計金額</span>
+          <strong id="total-amount">0円</strong>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>日付</th>
+                <th>品目</th>
+                <th>収支</th>
+                <th>金額</th>
+              </tr>
+            </thead>
+            <tbody id="ledger-body"></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </main>
+</body>
+
+</html>
